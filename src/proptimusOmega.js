@@ -8,14 +8,21 @@ export default class ProptimusOmega extends React.Component {
     }
   }
 
+  escalate = (event) => {
+    this.setState({
+      escalate: !this.escalate
+    })
+  }
+
+
   render() {
     return(
       <section>
         <img
-          src={/*Identify your image source from your props here.*/}
+          src={this.props.proptimusPhotos}
           className="App-logo"
           alt="logo"
-          onClick={this.props.callForBetterHelp}
+          onClick={this.escalate}
         />
         <p>{this.props.catchPhrase}</p>
       </section>

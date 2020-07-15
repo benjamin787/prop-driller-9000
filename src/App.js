@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ProptimusOmega from './proptimusOmega'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,36 +17,59 @@ export default class App extends React.Component {
 
 
   callForBadHelp = (event) => {
-
+    this.setState({
+      proptimusPhotos: "Proptimus Omega"
+    })
   }
 
   callForBetterHelp = (event) => {
-
+    this.setState({
+      proptimusPhotos: "Proptimus Beta"
+    })
   }
 
   gimmeAllYouGot = (event) => {
-
+    this.setState({
+      proptimusPhotos: "Proptimus Prime"
+    })
   }
 
   sendThemHome = (event) => {
-
+    this.setState({
+      proptimusPhotos: ""
+    })
   }
 
+    // const autobots = this.state.proptimusPhotos.map(autobot => {
+    //   return <Proptimus key={autobot.proptimusPhotos} name={autobot.proptimusPhotos} />
+    // })
+  //   const autobot = this.state.proptimusPhotos.filter(bot => {
+  //     bot === 
+  //   })
+  // }
+
   render() {
+
+
     return (
       <div className="App">
         <header className="App-header">
           <img
-            src={}
+            src={this.state.callForHelp}
             className="App-logo"
             alt="logo"
+            onClick={this.callForBadHelp}
           />
-
+          
           {this.state && this.state.activeProp === "" /*Which Proptobot should be checked for?*/ &&
           <>
             <p className="">Will this do, human?</p>
-            <Proptimus /*Specify your Proptobot here.*/
+            <ProptimusOmega /*Specify your Proptobot here.*/
               /*You need to pass all of your props to this component here.*/
+              key={this.state.proptimusPhotos}
+              callForHelp={this.state.callForHelp}
+              proptimusPhotos={this.state.proptimusPhotos}
+
             />
           </>
           }
